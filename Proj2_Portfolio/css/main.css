@@ -1,0 +1,58 @@
+* {
+    box-sizing: border-box;
+}
+
+img, embed, object, video {
+    max-width: 100%;
+}
+
+Nav, a, button {
+	min-width : 48px;
+	min-height: 48px;
+}
+
+.color-less-black {
+    color: #2d3c49;
+}
+
+.color-kinda-gray {
+    color: #7d97ad;
+}
+
+.featured-work__item {
+    text-align: center;
+}
+
+.header {
+    margin-top: 30px;
+    min-height: 80px;
+    transition: min-height 0.3s;
+}
+
+.header__hr {
+	border: 0;
+    width: 100%;
+    background-color: #7d97ad;
+    height: 5px;
+}
+
+.header__logo {
+    margin-top: 10px;
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+.header__title {
+    font-size: 3.0rem;
+    font-weight: 200;
+}
+
+/* Media queries to add margins beyond width of hero image */
+
+@media screen and (min-width: 1020px) {
+    body {
+        max-width: 1020px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
