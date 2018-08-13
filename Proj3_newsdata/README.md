@@ -29,14 +29,14 @@ We notice that the `author` column in `articles` table is a foreign key that ref
 In the case of `log` table, there is no explicit foreign key relationship. However, the `slug` column in `articles` table
 has a unique key constraint and it matches the text following `/article/` in the `log` table.
 
-So, let us define our first view, namely `articles_log_view` to represent this join of `articles` and `log` using a `LIKE` match between the `slug`
+So, let us define our first view, namely `articles_log_view` to represent this join of `articles` and `log` using a match between the `slug`
 and `path`.
 
 #### articles_log_view
 ```
 news=> CREATE VIEW articles_log_view AS
 news-> SELECT log.*, articles.author, articles.title, articles.slug, articles.lead, articles.body, articles.time AS article_time, articles.id AS articles_id
-news-> FROM log RIGHT JOIN articles ON log.path LIKE '%' || articles.slug;
+news-> FROM log RIGHT JOIN articles ON log.path = '/article/'  || articles.slug;
 
 ```
 This view will help us answer the first two questions by helping us join all the three tables.

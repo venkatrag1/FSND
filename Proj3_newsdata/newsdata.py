@@ -148,7 +148,7 @@ if __name__ == '__main__':
     # news-> articles.slug, articles.lead, articles.body, articles.time
     # news-> AS article_time, articles.id AS articles_id
     # news-> FROM log RIGHT JOIN articles
-    # news-> ON log.path LIKE '%' || articles.slug;
+    # news-> ON log.path = '/article/' || articles.slug;
 
     # Q1. What are the most popular three articles of all time?
     get_most_popular_articles(3)
