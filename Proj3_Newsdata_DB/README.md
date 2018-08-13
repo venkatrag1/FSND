@@ -32,6 +32,15 @@ has a unique key constraint and it matches the text following `/article/` in the
 So, let us define our first view, namely `articles_log_view` to represent this join of `articles` and `log` using a match between the `slug`
 and `path`.
 
+If you have a script that contains the create view statements called
+create_views.sql, then import the views from the
+command line by typing:
+psql -d news -f create_views.sql
+Or, in the main python script insert:
+create_views = open("create-views.sql").read()
+and,
+cursor.execute(create_views)
+
 #### articles_log_view
 ```
 news=> CREATE VIEW articles_log_view AS
