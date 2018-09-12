@@ -1,0 +1,45 @@
+<header class="row top-menu">
+	<div class="col-sm-2 text-left">
+		<a href="{{url_for('inventoryHome')}}">
+			<span class="glyphicon glyphicon-home header__span" aria-hidden="true"></span>
+		</a>
+	</div>
+	<div class="col-sm-8">
+		<div class="banner main">
+			<h1>Produce Tracker</h1>
+		</div>
+	</div>
+	<div class="col-sm-2 text-right">
+					{%if 'username' not in session %}
+			<a href="{{url_for('showLogin')}}">
+                <span class="header__span">
+                    Login
+                </span>
+            </a>
+			{% else %}
+			<a href="{{url_for('gdisconnect')}}">
+                <span class="header__span">
+                    Logout
+                </span>
+            </a>
+			{% endif %}
+
+	</div>
+</header>
+
+
+<div class="row" xmlns="http://www.w3.org/1999/html">
+    <div class = 'flash'>
+      {% with messages = get_flashed_messages() %}
+          {% if messages %}
+
+            <ul>
+            {% for message in messages %}
+                <li> <strong> {{ message }} </strong> </li>
+            {% endfor %}
+            </ul>
+            {% endif %}
+        {% endwith %}
+
+    </div>
+</div>

@@ -1,0 +1,23 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+<main class="row">
+    <div class="col-sm-4">
+        <h2 class="category-title">Category</h2>
+        <a href="{{url_for('produceCategoryAll')}}">
+            <div class="category-list"><h3>All</h3></div>
+        </a>
+        {% for category in categories%}
+        <a href="{{url_for('produceCategory', category_name=category.name)}}">
+            <div class="category-list"><h3>{{category.name}}</h3></div>
+        </a>
+        {% endfor %}
+    </div>
+    <div class="col-sm-8 padding-top">
+        {% block itemlist %}
+        {% endblock %}
+    </div>
+</main>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "contentblock.html" %}
+{% block itemlist %}
+        {% if 'username' in session %}
+        <div class="row">
+            <div class="col-sm-12">
+                {% if selected_category_name == 'All' %}
+                <a href='{{url_for('newProduceItem', selected_category_name='Other')}}'>
+                {% else %}
+                <a href='{{url_for('newProduceItem', selected_category_name=selected_category_name)}}'>
+                {% endif %}
+                <button class="btn btn-default" id="new-item">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    Add new item
+                </button></a>
+            </div>
+        </div>
+        {% endif %}
+        <div class="row">
+            <div class="col-sm-12 padding-top">
+                <h2 class="produce-title">{{selected_category_name}}</h2>
+            </div>
+            {% for item in items%}
+            <div class="col-sm-12">
+                <a href="{{url_for('produceItem', category_name=item.category.name, item_name=item.name)}}">
+                    <div class="col-sm-12 produce-item">
+                        <h4>{{item.name}}</h4>
+                        {% if selected_category_name == 'All' %}
+                            </h5>({{item.category.name}})</h5>
+                        {% endif %}
+                        <p class="produce-expiry">{{item.formatted_expiry_date}}</p>
+                    </div>
+                </a>
+            </div>
+                {% endfor %}
+        </div
+{% endblock %}
