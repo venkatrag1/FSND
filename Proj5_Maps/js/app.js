@@ -113,15 +113,15 @@ function setInfoWindowContent(marker, infowindow) {
                     }
                     infowindow.setContent(content);
                 }
+            }).fail(function () {
+                content += '<div class="alert-warning">Error fetching business details from Yelp</div>';
+                infowindow.setContent(content);
             });
         } else {
             // JSON parsing error
             content += '<div class="alert-warning">Cannot parse businessID from Yelp</div>';
             infowindow.setContent(content);
         }
-    }).fail(function () {
-        content += '<div class="alert-warning">Error fetching business details from Yelp</div>';
-        infowindow.setContent(content);
     });
 }
 
