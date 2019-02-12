@@ -11,7 +11,7 @@ navigation bar to reveal a list view with real time filtering, from which you ca
 select the place as well.
 
 You can also view a live version of this page here- 
-
+https://venkatrag1.github.io/kelpins/
 ## Attributions
 
 HTML/CSS inspiration-
